@@ -46,12 +46,6 @@ const Alert = ({
 };
 
 export default class GamePage extends React.Component {
-  static GameField = GameField;
-
-  static ScoreBoard = ScoreBoard;
-
-  static Alert = Alert;
-
   render() {
     const {
       gameField, onCellClick, onResetClick, activePlayer, players, result, winner,
@@ -62,14 +56,14 @@ export default class GamePage extends React.Component {
           <div className="col-sm-8">
             <table className="table-bordered" bgcolor="white">
               <tbody>
-                <GamePage.GameField field={gameField} onCellClick={onCellClick} />
+                <GameField field={gameField} onCellClick={onCellClick} />
               </tbody>
             </table>
           </div>
           <div className="col-sm-4">
-            <GamePage.ScoreBoard players={players} activePlayer={activePlayer} />
+            <ScoreBoard players={players} activePlayer={activePlayer} />
           </div>
-          {result && <GamePage.Alert
+          {result && <Alert
             onClick={onResetClick}
             result={result}
             winner={winner}
