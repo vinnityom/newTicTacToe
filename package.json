@@ -5,6 +5,7 @@
   "dependencies": {
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
+    "immutability-helper": "^3.0.1",
     "jquery": "^3.4.1",
     "popper.js": "^1.15.0",
     "react": "^16.8.6",
