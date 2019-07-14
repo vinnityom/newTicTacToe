@@ -5,7 +5,7 @@ export const makeStep = (row, cell, field, sign) => {
   const newField = field.slice();
   newField[row][cell] = sign;
   return newField;
-}
+};
 
 export const isCellTaken = (row, cell, field) => !!field[row][cell];
 

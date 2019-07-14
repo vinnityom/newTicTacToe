@@ -3,15 +3,17 @@ import classNames from 'classnames';
 
 export default class WelcomePage extends React.Component {
   render() {
-    const { onChange, playerX, playerO, onSubmit, isFormFilled } = this.props;
+    const {
+      onChange, playerX, playerO, onSubmit, isFormFilled,
+    } = this.props;
     const buttonClassNames = classNames({
       btn: true,
       'btn-outline-primary': true,
       'btn-lg': true,
       'btn-block': true,
       disabled: !isFormFilled,
-    })
-		return (
+    });
+    return (
       <div className="container">
         <h1 className="display-4 text-center">Welcome to the great game of Tic Tac Toe!</h1>
         <form onSubmit={onSubmit}>
@@ -47,5 +49,5 @@ export default class WelcomePage extends React.Component {
         </form>
       </div>
     );
-	}
+  }
 }
