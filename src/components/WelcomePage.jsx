@@ -1,8 +1,16 @@
 import React from 'react';
+import classNames from 'classnames';
 
 export default class WelcomePage extends React.Component {
   render() {
     const { onChange, playerX, playerO, onSubmit, isFormFilled } = this.props;
+    const buttonClassNames = classNames({
+      btn: true,
+      'btn-outline-primary': true,
+      'btn-lg': true,
+      'btn-block': true,
+      disabled: !isFormFilled,
+    })
 		return (
       <div id="welcome-page">
         <h1 className="display-4 text-center">Welcome to the great game of Tic Tac Toe!</h1>
@@ -35,7 +43,7 @@ export default class WelcomePage extends React.Component {
               />
             </div>
             <div className="col-sm-2">
-              <button id="beginButton" disabled={!isFormFilled} type="submit" className="btn btn-outline-primary btn-lg btn-block disabled">Begin</button>
+              <button id="beginButton" disabled={!isFormFilled} type="submit" className={buttonClassNames}>Begin</button>
             </div>
           </div>
         </form>
