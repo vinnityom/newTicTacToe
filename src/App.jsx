@@ -126,10 +126,8 @@ export default class App extends React.Component {
   render() {
     const { isGameStarted } = this.state;
     return (
-      <div className="App">
-        <div id="main-container" className="container-fluid">
-          {isGameStarted ? this.renderGamePage() : this.renderWelcomePage()}
-        </div>
+      <div className="App container-fluid">
+        {isGameStarted ? this.renderGamePage() : this.renderWelcomePage()}
       </div>
     );
   }

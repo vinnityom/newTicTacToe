@@ -42,18 +42,20 @@ export default class GamePage extends React.Component {
 			gameField, onCellClick, onResetClick, activePlayer, players, result, winner,
 		} = this.props;
 		return (
-			<div className="row" id="game-page">
-				<div id="game-field" className="col-sm-8">
-					<table id="field-table" className="table-bordered" bgcolor="white">
-						<tbody>
-							<GameField field={gameField} onCellClick={onCellClick} />
-						</tbody>
-					</table>
+			<div className="container">
+				<div className="row" id="game-page">
+					<div className="col-sm-8">
+						<table className="table-bordered" bgcolor="white">
+							<tbody>
+								<GameField field={gameField} onCellClick={onCellClick} />
+							</tbody>
+						</table>
+					</div>
+					<div className="col-sm-4">
+						<ScoreBoard players={players} activePlayer={activePlayer} />
+					</div>
+					{result && <Alert onClick={onResetClick} result={result} winner={winner} players={players} />}
 				</div>
-				<div className="col-sm-4">
-					<ScoreBoard players={players} activePlayer={activePlayer} />
-				</div>
-				{result && <Alert onClick={onResetClick} result={result} winner={winner} players={players} />}
 			</div>
 		)
 	}
