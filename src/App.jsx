@@ -49,12 +49,18 @@ export default class App extends React.Component {
 
   handleCellClick = (row, cell) => () => {
     const {
-      gameField, activePlayer, players, fieldSize, movesCounter,
+      gameField, activePlayer, players, fieldSize, movesCounter, gameResult,
     } = this.state;
-    const signToPut = players[activePlayer].sign;
+
+    if (gameResult) {
+      return;
+    }
+
     if (isCellTaken(row, cell, gameField)) {
       return;
     }
+
+    const signToPut = players[activePlayer].sign;
     const updatedField = makeStep(row, cell, gameField, signToPut);
 
     const getNextActivePlayer = (currentActivePlayer) => {
