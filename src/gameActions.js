@@ -33,4 +33,4 @@ export const isGameOver = (field, fieldSize, sign) => {
   return diagonalUp || diagonalDown;
 };
 
-export const isTie = movesCounter => movesCounter === 9;
+export const isTie = (movesCounter, fieldSize) => movesCounter === (fieldSize ** 2);

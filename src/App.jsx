@@ -85,7 +85,8 @@ export default class App extends React.Component {
   }
 
   componentDidUpdate() {
-    if (isTie(this.state.movesCounter) && !this.state.gameResult) {
+    const { movesCounter, gameResult, fieldSize } = this.state;
+    if (isTie(movesCounter, fieldSize) && !gameResult) {
       this.setState({ gameResult: 'tie' });
     }
   }
