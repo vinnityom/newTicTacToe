@@ -70,9 +70,11 @@ export default class App extends React.Component {
       };
       return nextActivePlayer[currentActivePlayer];
     };
+
+    const updatedMovesCounter = movesCounter + 1;
     const nextActivePlayer = getNextActivePlayer(activePlayer);
     this.setState(
-      { gameField: updatedField, activePlayer: nextActivePlayer, movesCounter: movesCounter + 1 },
+      { gameField: updatedField, activePlayer: nextActivePlayer, movesCounter: updatedMovesCounter },
     );
 
     if (isGameOver(gameField, fieldSize, signToPut)) {
@@ -81,12 +83,7 @@ export default class App extends React.Component {
 
       const updatedPlayers = update(players, { [winner]: { score: { $set: oldScore + 1 } } });
       this.setState({ gameResult: 'win', winner, players: updatedPlayers });
-    }
-  }
-
-  componentDidUpdate() {
-    const { movesCounter, gameResult, fieldSize } = this.state;
-    if (isTie(movesCounter, fieldSize) && !gameResult) {
+    } else if (isTie(updatedMovesCounter, fieldSize)) {
       this.setState({ gameResult: 'tie' });
     }
   }
